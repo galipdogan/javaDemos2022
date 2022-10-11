@@ -15,11 +15,7 @@ public class InstructorManager {
 	    }
 
 	    public void add(Instructor instructor) throws Exception {
-//	        for (Instructor instructor1 : instructors) {
-//	            if (instructor.getFirstName().equals(instructor1.getFirstName() ) ) {
-//	                throw new Exception("Egitmen daha once kayitli!");
-//	            }
-//	        }
+
 	        instructorDao.add(instructor);
 	        for (Logger logger : loggers) {// once database sonra mail yollandin
 	            logger.log(instructor.getFirstName());
