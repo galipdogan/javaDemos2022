@@ -17,17 +17,15 @@ public class CourseManager {
 	}
 
 	public void add(Course course) throws Exception {
-//	       for (Course course1:courses){
-//	           if (course1.getName().equals(course.getName())){
-//	               throw new Exception("Kurs daha onceden kayitli!");
-//	           }else if (course1.getUnitPrice()<0){
-//	               throw new Exception("Kurs fiyati 0(sifir) dan kucuk olmaza!");
-//	           }
-//	       }
+	       for (Course course1:courses){
+	           if (course1.getName().equals(course.getName())){
+	               throw new Exception("Kurs daha onceden kayitli!");
+	           }else if (course1.getUnitPrice()<0){
+	               throw new Exception("Kurs fiyati 0(sifir) dan kucuk olmaza!");
+	           }
+	       }
 
-		if (course.getUnitPrice() < 0.0) {
-			throw new Exception("Kurs fiyati 0(sifir) dan kucuk olmaza!");
-		}
+
 		courseDao.add(course);
 		for (Logger logger : loggers) {// once database sonra mail yollandin
 			logger.log(course.getName());
