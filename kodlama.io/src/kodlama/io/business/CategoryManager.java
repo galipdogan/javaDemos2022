@@ -16,12 +16,12 @@ public class CategoryManager {
 	}
 
 	public void add(Category category) throws Exception {
-//	        for (Category category1:categories)
-//	        {
-//	            if(category.getName()==category1.getName()){
-//	                throw new Exception("Kategori ismi daha once kayitli!");
-//	            }
-//	        }
+	        for (Category category1:categories)
+	        {
+	            if(category.getName().equals(category1.getName()){
+	                throw new Exception("Kategori ismi daha once kayitli!");
+	            }
+	        }
 		categoryDao.add(category);
 		for (Logger logger : loggers) {// once database sonra mail yollandin
 			logger.log(category.getName());
