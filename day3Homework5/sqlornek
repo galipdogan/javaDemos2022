@@ -1,0 +1,60 @@
+
+Select * from Customers
+Select ContactName Ad,CompanyName SirketAdı,City  Sehir FROM customers;
+
+Select * from Customers where City = 'London';
+Select * from  products where CategoryID = 1 or CategoryID = 3 ;
+Select * from  products where CategoryID = 1 and UnitPrice >= 18 ;
+Select * from products order by ProductName;
+Select * from products order by CategoryID;
+
+Select * from products order by CategoryID , UnitPrice;
+
+Select * from products order by UnitPrice asc; /* ascending - artan*/
+Select * from products order by UnitPrice desc; /* descending - azalan*/
+
+Select * from products where CategoryID=1 order by UnitPrice desc;
+
+Select count(*) from products; 
+Select count(*) Adet from products; 
+Select count(*),ProductName from products;
+Select count(*) from products where CategoryID =2;
+
+
+Select CategoryID,count(*) from products group by CategoryID; 
+Select CategoryID,count(*) from products group by CategoryID having count(*) <10; 
+
+Select CategoryID,count(*) from products where UnitPrice>20 group by CategoryID having count(*) <10; 
+
+Select *
+ from products inner join categories
+ on products.CategoryID = categories.CategoryID;
+
+Select products.ProductID, products.ProductName, products.UnitPrice, categories.CategoryName
+ from products inner join categories
+ on products.CategoryID = categories.CategoryID;
+ 
+ 
+ Select products.ProductID, products.ProductName, products.UnitPrice, categories.CategoryName
+ from products inner join categories
+ on products.CategoryID = categories.CategoryID
+ where products.UnitPrice>10; 
+Select count(*)  FROM  northwind.`order details` ;
+ 
+ Select * FROM products p inner join northwind.`order details` od
+ on p.ProductID = od.ProductID;
+ 
+Select count(*) FROM products p left join northwind.`order details` od 
+ on p.ProductID = od.ProductID;
+ 
+ select count(*) from customers c inner join orders o 
+ on c.CustomerID = o.CustomerID; 
+ 
+select * from customers c left join orders o 
+ on c.CustomerID = o.CustomerID
+ where o.CustomerID is Null; 
+ 
+ SELECT * FROM products p inner join northwind.`order details` od 
+ on p.ProductID = od.ProductID
+ inner join orders o 
+ on o.OrderID = od.OrderID;
